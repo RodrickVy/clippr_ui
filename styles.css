@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,  900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+    padding: 2rem;
+    min-height: 100vh;
+
+}
+
+#header h2 {
+    font-weight: bold;
+}
+
+#header p {
+    max-width: 600px;
+    text-align: center;
+}
+
+#header img {
+    width: 600px;
+    max-width: 100%;
+
+}
+
+ button {
+
+
+
+    background-color: #FF8A00;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+
+
+    color: black;
+    cursor: pointer;
+
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+
+    margin: 0;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+
+
+    touch-action: manipulation;
+
+}
+
+ button:hover,
+ button:focus {
+    background-color: #FF8A00;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    background-color: #c85000;
+    box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+    transform: translateY(0);
+}
+
+#form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+#form label{
+    display: block;
+    margin-top: 0.2rem;
+}
+#form input,select{
+    display: block;
+    background: #f1e7dc;
+    padding:0.4rem;
+    border: none;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+
+}
+
+
+#downloader{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0.3rem;
+}
+
+
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.responsive-form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="checkbox"] + label {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.form-group.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.form-group.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.submit-btn {
+    background-color: #FF8A00   ;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background-color: #FF8A00;
+}
+
+
+
+
+
+.progress-container {
+    width: 80%; /* Responsive width */
+    background-color: #ddd;
+    border-radius: 5px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0;
+    background-color: #FF8A00 ;
+    border-radius: 5px;
+    transition: width 10s linear;
+}
+
+.progress-text {
+    margin-top: 20px;
+    color: #666;
+}
+
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .responsive-form {
+        width: 50%;
+        margin: 0 auto;
+    }
+}
