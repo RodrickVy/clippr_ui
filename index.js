@@ -8,10 +8,60 @@ const formSubmitBtn = document.getElementById("formSubmitBtn");
 const progress = document.getElementById("progress");
 const downloadProgressBar = document.getElementById('downloadProgressBar');
 const  downloadBtn =  document.getElementById('downloadBtn');
-getStartedBtn.addEventListener("click", () => {
-    header.style.display = "none";
-    form.style.display = "flex";
-})
+    //  const signInForm = document.getElementById("signInForm");
+    //  const signUpForm = document.getElementById("signUpForm");
+
+    // const signInOption = document.getElementById("signIn");
+    // const signUpOption = document.getElementById("signUp");
+
+
+    // const sign_inBtn = document.getElementById("sign_in");
+    // const sign_upBtn= document.getElementById("sign_up");
+
+
+
+
+    // signInOption.addEventListener("click", () => {
+    //     signUpForm.style.display='none';
+    //    signInForm.style.display='block';
+    // })
+
+
+
+    // signUpOption.addEventListener("click", () => {
+    //     signUpForm.style.display='block';
+    //     signInForm.style.display='none';
+    //  })
+    
+
+    
+    // sign_upBtn.addEventListener("click", () => {
+    //     const name = document.getElementById("up_name");
+    //     const email= document.getElementById("up_email");
+    //     const password = document.getElementById("up_password");
+    //     const comfirmPass= document.getElementById("up_comfirmPass");
+
+    //     if(password !== comfirmPass){
+    //         alert("Password and comfirm password fields don't match.")
+    //     }else if(name.length == 0 || email.length <= 1){
+    //         alert("Invalid email, password or field")
+    //     }
+    //  })
+
+
+
+
+    // sign_inBtn.addEventListener("click", () => { 
+    //     const email= document.getElementById("in_email");
+    //     const password = document.getElementById("in_password"); 
+        
+    //     if(email.length == 0 || password.length <= 1){
+    //         alert("Invalid email, password or field")
+    //     }
+    //  })
+
+
+
 formSubmitBtn.addEventListener("click", async () => {
     form.style.display = "none";
     downloader.style.display = "flex";
@@ -37,19 +87,49 @@ formSubmitBtn.addEventListener("click", async () => {
 
 })
 
-
-function exponentialProgress(callback, condition) {
-
-// 1000 milliseconds = 1 second
-}
-
+ 
 async function createClip() {
-    // Get form values
-    const mainLink = document.getElementById("mainLink").value;
-    const peripheralLink = document.getElementById("peripheralLink").value;
-    const captionsBool = document.getElementById("captionsBool").value;
-    const timestamp = document.getElementById("timestamp").value;
-    const numClips = document.getElementById("numClips").value;
+    const exampleSocket = new WebSocket("wss://s2zwrp5xhd.execute-api.us-west-2.amazonaws.com/production/");
+    
+    var mainLinkValue = document.getElementById("mainLink").value;
+    var perfLinkValue = document.getElementById("peripheralLink").value;
+    var captionsBoolValue = document.getElementById("captionsBool").checked ? "True" : "False";
+    var timestampValue = parseInt(document.getElementById("timestamp").value);
+    var numClipsValue = parseInt(document.getElementById("numClips").value)
+  
+    var message = {
+        "action": "SendMessage",
+        "main_link": mainLinkValue,
+        "peripheral_link": perfLinkValue,
+        "captions": captionsBoolValue,
+        "manual_timestamp": timestampValue,
+        "num_clips": numClipsValue
+    };
+  
+    checksocket(exampleSocket)
+  
+    await new Promise(resolve => setTimeout(resolve, 3000));
+    exampleSocket.send(JSON.stringify(message));
+  
+      checksocket(exampleSocket)
+      exampleSocket.onmessage = (event) => {
+          var linkdata = event.data
+          console.log(event.data);
+          linkdata = linkdata.split('"').join('');
+          downloadBtn.setAttribute("href",linkdata);
+          downloadBtn.setAttribute('disabled',false);
+
+          if (linkdata == "complete") {
+            exampleSocket.close() 
+          }
+        
+        };
+      
+      await new Promise(resolve => setTimeout(resolve, 2000));
+     
+    checksocket(exampleSocket)
+
+
 
     await  delay(4);
 }
@@ -67,5 +147,22 @@ function delay(seconds) {
         }, seconds * 1000); // Convert seconds to milliseconds
     });
 }
+
+
+
+
+
+
+ 
+function checksocket(exampleSocket){
+    if (exampleSocket.readyState == 0){
+      console.log("The Socket has not opened yet")
+    }else if (exampleSocket.readyState == 1){
+      console.log("The Socket is open")
+    } else {
+      console.log("The Socket has now closed")
+    }
+  }
+
 
 

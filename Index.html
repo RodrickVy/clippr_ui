@@ -18,51 +18,10 @@
         you.
     </p>
     <img src="assets/clips_thumbnail.png" alt="short clips thumbnails">
-    <button id="tryNowButton">
+    <a class="submit-btn btn" href="clip.html" id="tryNowButton">
         Try It Now!
-    </button>
+    </a>
     <i>100% free, no signup!</i>
 </header>
-
-<form id="form" class="responsive-form">
-    <div class="form-group">
-        <label for="mainLink">Main Link:</label>
-        <input type="text" id="mainLink" name="mainLink" required>
-    </div>
-
-    <div class="form-group">
-        <label for="peripheralLink">Peripheral Link:</label>
-        <input type="text" id="peripheralLink" name="peripheralLink" required>
-    </div>
-
-    <div class="form-group checkbox-group">
-        <label for="captionsBool">Captions:</label>
-        <input id="captionsBool" name="captionsBool" type="checkbox" checked>
-    </div>
-
-    <div class="form-group">
-        <label for="timestamp">Timestamp:</label>
-        <input type="text" id="timestamp" name="timestamp" required>
-    </div>
-
-    <div class="form-group">
-        <label for="numClips">Number of Clips:</label>
-        <input type="number" id="numClips" name="numClips" required>
-    </div>
-
-    <button type="button" id="formSubmitBtn" class="submit-btn">Submit</button>
-</form>
-
-<section id="downloader">
-    <div id="progress">
-        <div class="progress-container">
-            <div class="progress-bar" id="downloadProgressBar"></div>
-        </div>
-        <p class="progress-text">Doing the magic, just a sec...</p>
-
-    </div>
-
-    <button type="button" id="downloadBtn"  disabled>Download</button>
-</section>
 </body>
 </html>

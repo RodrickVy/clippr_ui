@@ -75,7 +75,6 @@ button:active {
 }
 
 #form {
-    display: none;
     flex-direction: column;
     align-items: center;
     padding: 2rem;
@@ -121,6 +120,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .form-group {
@@ -129,7 +129,7 @@ body {
 
 .form-group label {
     display: block;
-    margin-bottom: 5px;
+    margin-top: 15px;
 }
 
 .form-group input[type="text"],
@@ -181,7 +181,7 @@ body {
     width: 0;
     background-color: #FF8A00 ;
     border-radius: 5px;
-    transition: width 10s linear;
+    transitioformn: width 10s linear;
 }
 
 .progress-text {
@@ -189,7 +189,9 @@ body {
     color: #666;
 }
 
-
+.btn{
+    text-decoration: none;
+}
 /* Responsive Design */
 @media (min-width: 768px) {
     .responsive-form {

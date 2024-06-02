@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clip video</title>
+    <meta name="description" content="Instantly Create Engaging Shorts from YouTube Videos.">
+    <script type="module" src="index.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+ 
+<form id="form" class="responsive-form">
+    <div class="form-group">
+        <label for="mainLink">Main Link:</label>
+        <input type="text" id="mainLink" name="mainLink" required>
+    </div>
+
+    <div class="form-group">
+        <label for="peripheralLink">Peripheral Link:</label>
+        <input type="text" id="peripheralLink" name="peripheralLink" required>
+    </div>
+
+    <div class="form-group checkbox-group">
+        <label for="captionsBool">Captions:</label>
+        <input id="captionsBool" name="captionsBool" type="checkbox" checked>
+    </div>
+
+    <div class="form-group">
+        <label for="timestamp">Timestamp:</label>
+        <input type="text" id="timestamp" name="timestamp" required>
+    </div>
+
+    <div class="form-group">
+        <label for="numClips">Number of Clips:</label>
+        <input type="number" id="numClips" name="numClips" required>
+    </div>
+
+    <button type="button" id="formSubmitBtn" class="submit-btn">Submit</button>
+</form>
+
+<section id="downloader">
+    <div id="progress">
+        <div class="progress-container">
+            <div class="progress-bar" id="downloadProgressBar"></div>
+        </div>
+        <p class="progress-text">Doing the magic, just a sec...</p>
+
+    </div>
+    <a type="button" id="downloadBtn" href="" disabled>Download</a>
+</section>
+</body>
+</html>
